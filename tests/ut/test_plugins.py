@@ -2,7 +2,8 @@ from unittest.mock import create_autospec
 
 import pytest
 
-from aiocache.base import API, BaseCache
+from aiocache.api import API
+from aiocache.base import BaseCache
 from aiocache.plugins import BasePlugin, HitMissRatioPlugin, TimingPlugin
 from ..utils import Keys
 

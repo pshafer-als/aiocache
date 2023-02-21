@@ -3,7 +3,7 @@ This module implements different plugins you can attach to your cache instance. 
 are coded in a collaborative so you can use multiple inheritance.
 """
 
-from aiocache.base import API
+from aiocache.api import API
 
 
 class BasePlugin:

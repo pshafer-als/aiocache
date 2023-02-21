@@ -4,7 +4,8 @@ from unittest.mock import ANY, AsyncMock, MagicMock, patch
 
 import pytest
 
-from aiocache.base import API, BaseCache, _Conn
+from aiocache.api import API
+from aiocache.base import BaseCache, _Conn
 from ..utils import Keys, ensure_key
 
 
