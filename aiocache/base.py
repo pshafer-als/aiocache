@@ -5,10 +5,10 @@ import os
 import time
 from enum import Enum
 from types import TracebackType
-from typing import Any, Callable, List, Optional, Set, Type
+from typing import Callable, List, Optional, Set, Type
 
-# from aiocache.plugins import BasePlugin
 from aiocache.serializers import BaseSerializer, StringSerializer
+from aiocache.types import BasePlugin
 
 
 logger = logging.getLogger(__name__)
@@ -112,7 +112,7 @@ class BaseCache:
     def __init__(
         self,
         serializer: Optional[BaseSerializer] = None,
-        plugins: Optional[List[Any]] = None,  # aiocache.plugins depends on aiocache.base
+        plugins: Optional[List[BasePlugin]] = None,
         namespace: str = "",
         key_builder: Optional[Callable[[str, str], str]] = None,
         timeout: Optional[float] = 5,
@@ -128,8 +128,8 @@ class BaseCache:
         self._serializer: Optional[BaseSerializer] = None
         self.serializer: BaseSerializer = serializer or StringSerializer()
 
-        self._plugins: List[Any] = None
-        self.plugins: List[Any] = plugins or []
+        self._plugins: List[BasePlugin] = None
+        self.plugins: List[BasePlugin] = plugins or []
 
     @property
     def serializer(self):

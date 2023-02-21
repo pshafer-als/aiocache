@@ -4,16 +4,7 @@ are coded in a collaborative so you can use multiple inheritance.
 """
 
 from aiocache.base import API
-
-
-class BasePlugin:
-    @classmethod
-    def add_hook(cls, func, hooks):
-        for hook in hooks:
-            setattr(cls, hook, func)
-
-    async def do_nothing(self, *args, **kwargs):
-        pass
+from aiocache.types import BasePlugin
 
 
 BasePlugin.add_hook(
